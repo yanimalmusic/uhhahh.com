@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Klickbares Bild — E-Mail öffnen</title>
+  <style>
+    :root {
+      --bg:#f6f7f9;
+      --shadow:0 18px 40px rgba(15,18,28,0.18);
+      --shadow-hover:0 28px 60px rgba(15,18,28,0.25);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+    }
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:4vw;
+    }
+    .card{
+      background:transparent;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    a.mail-link{
+      display:block;
+      outline:none;
+      text-decoration:none;
+      border-radius:12px;
+    }
+    img.cta-image{
+      display:block;
+      width:100%;
+      height:auto;
+      max-width:66vw;
+      max-height:66vh;
+      object-fit:cover;
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(15,18,28,0.08);
+      transition:transform .22s cubic-bezier(.2,.9,.25,1),box-shadow .22s ease,filter .22s ease;
+      will-change:transform,box-shadow;
+      cursor:pointer;
+    }
+    @media (hover: hover) and (pointer: fine){
+      a.mail-link:focus img.cta-image,
+      a.mail-link:hover img.cta-image{
+        transform:translateY(-8px) scale(1.01);
+        box-shadow:var(--shadow-hover);
+        filter:brightness(1.02);
+      }
+    }
+    a.mail-link:active img.cta-image{
+      transform:translateY(-2px);
+      box-shadow:var(--shadow);
+    }
+    @media (max-width:600px){
+      img.cta-image{
+        max-width:92vw;
+        max-height:56vh;
+      }
+      .wrap{
+        padding:6vw;
+      }
+    }
+    a.mail-link:focus{
+      outline:3px solid rgba(21,156,228,0.18);
+      outline-offset:6px;
+      border-radius:12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <a class="mail-link" href="mailto:uhhahhrecords@gmail.com" title="E-Mail senden" aria-label="Bild anklicken, um eine E-Mail zu öffnen">
+        <img class="cta-image" src="Uhhahhlogo.jpg" alt="Klicke hier, um eine E-Mail zu senden">
+      </a>
+    </div>
+  </div>
+</body>
+</html>
